@@ -46,13 +46,22 @@ public class Grammar {
 
         //System.out.print(" -> " + sb.toString());
 
-        for (NonTerminal nt : nonTerminals) {
-            int index = sb.indexOf(nt.name);
+        for (Production prod : productions) {
+            String lhsString = prod.left.stream()
+                    .map(symbol -> symbol.name)
+                    .reduce((a, b) -> a + b)
+                    .orElse("");
+
+            int index = sb.indexOf(lhsString);
 
             if (index != -1) {
                 List<Production> possibleProductions = productions.stream()
-                        .filter(p -> p.left.equals(nt))  // get all production of that nt
-                        .toList(); // put them in a list
+                        .filter(p -> p.left.stream()
+                                .map(symbol -> symbol.name)
+                                .reduce((a, b) -> a + b)
+                                .orElse("")
+                                .equals(lhsString))
+                        .toList();
 
                 if (!possibleProductions.isEmpty()) {
                     int nrOfProductions = possibleProductions.size();
@@ -65,7 +74,7 @@ public class Grammar {
                             .reduce((a, b) -> a + b)  // put all right symbols in a string
                             .orElse("");
 
-                    sb.replace(index, index + nt.name.length(), rhsString);
+                    sb.replace(index, index + lhsString.length(), rhsString);
 
                     System.out.print(" -> " + sb.toString());
 
@@ -78,6 +87,10 @@ public class Grammar {
     }
 
     public FiniteAutomaton toFiniteAutomaton() {
+        //only type 3 grammar can be fa
+        if(g)
+
+
         NonTerminal finalState = new NonTerminal("final");
 
         List<Transition> transitions = generateTransitions(productions, finalState);
