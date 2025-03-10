@@ -131,8 +131,11 @@ The program displays the given FA, and then the Regular Grammar obtained from it
 
 It displays that the FA is not deterministic, converts it to a DFA and displays it.
 
-![The obtained DFA](LFA%20lab2.3.png)
+![The obtained DFA through analytical method in Java](LFA%20lab2.3.png)
 
+The same result can be obtained through the tabular method
+
+![Tabular method](Tabular%20method.jpg)
 ## Conclusions
 
 1. A Regular grammar can be obtained from a FA, regardless if it is deterministic or not.
