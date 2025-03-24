@@ -23,12 +23,14 @@ The implemented lexer processes Boolean expressions consisting of logical operat
 
 #### **Tokenization Process:**
 - The lexer reads characters from the input and groups them into **tokens**.
-- It recognizes keywords (`true`, `false`, `AND`, `OR`, `NOT`, `NAND`, `NOR`, `XOR`, `XNOR`) directly using a **prefix match**.
-- It identifies integer values (`0`, `1`) while rejecting invalid numbers.
-- Variables start with a letter and can contain alphanumeric characters and underscores (`_`).
-- Special characters like `(` and `)` are treated as separate tokens.
-- Whitespace is ignored.
-- Unexpected characters throw an error.
+- It uses `peeK()` to get the current character.
+- Whitespaces are skipped using `advance()`
+- First, it recognizes boolean values `true` and `false`, by checking if the following characters coincide.
+- Then it searches for boolean operators `AND`, `OR`, `NOT`, `NAND`, `NOR`, `XOR`, and `XNOR`.
+- After that it checks for parentheses `(` and `)`.
+- It identifies integer values (`0`, `1`) while rejecting invalid numbers, by throwing a RuntimeException.
+- It starts checking for variable names if a letter occurs, then looks for letter, numbers or underscores, if ann unexpected character occurs it also throws an RuntimeException.
+- At the end it adds an EOF token 
 
 ### **Design Choices**
 - **Peek and Advance:** The lexer maintains a `position` variable to traverse the input.
@@ -68,13 +70,13 @@ The lexer was tested using JUnit to verify correctness:
 ![Example input](LFA%20lab3%20input1.png)
 
 ## Conclusions
-1. A lexer is essential for breaking raw input into structured tokens for further processing.
-2. Implementing a Boolean expression lexer helped reinforce concepts related to tokenization, regular expressions, and automata.
-3. A well-structured lexer can be easily extended to handle more complex expressions and rules.
-4. The lexer is only responsible for tokenization, the validation of input is done by a parser, and the evaluation by an interpreter.
-5. Automated testing ensures the lexer correctly handles valid and invalid inputs.
+A lexer is essential for breaking raw input into structured tokens for further processing. 
+Implementing a Boolean expression lexer helped reinforce concepts related to tokenization, regular expressions, and automata.
+A well-structured lexer can be easily extended to handle more complex expressions and rules.
+The lexer is only responsible for tokenization, the validation of input is done by a parser, and the evaluation by an interpreter.
+Automated testing ensures the lexer correctly handles valid and invalid inputs.
 
 ## References
 - [A sample of a lexer implementation](https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/LangImpl01.html)
 - [About lexical analysis on Wikipedia](https://en.wikipedia.org/wiki/Lexical_analysis)
-- Compiler Design: Principles, Techniques, and Tools – Aho, Sethi & Ullman  
+- Compiler Design: Principles, Techniques, and Tools – Aho, Sethi & Ullman
