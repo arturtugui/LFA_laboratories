@@ -41,7 +41,7 @@ public class Main {
         finiteAutomaton.displayFiniteAutomaton();
 
         Grammar grammar = finiteAutomaton.toRegularGrammar();
-        grammar.displayGrammar();
+        grammar.displayGrammar1();
 
 
         if (finiteAutomaton.isDeterministic()) {

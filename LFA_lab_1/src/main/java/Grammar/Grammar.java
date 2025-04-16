@@ -8,6 +8,7 @@ import Grammar.symbols.Terminal;
 import FiniteAutomaton.Transition;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Grammar {
     public Set<NonTerminal> nonTerminals;
@@ -255,13 +256,19 @@ public class Grammar {
         }
     }
 
-    public void displayGrammar() {
+    public void displayGrammar1() {
         System.out.println("\tGrammar:");
         System.out.println("VN (Non-Terminals): " + nonTerminals);
         System.out.println("VT (Terminals): " + terminals);
         System.out.println("Start Symbol: " + startSymbol);
         System.out.println("Productions:");
 
+        displayProductions1();
+
+        System.out.println("\n");
+    }
+
+    public void displayProductions1(){
         for (Production production : productions) {
             String lhs = production.left.stream()
                     .map(Symbol::toString)
@@ -275,7 +282,57 @@ public class Grammar {
 
             System.out.println(lhs + " → " + rhs);
         }
+    }
+
+    public void displayGrammarType2Or3() {
+        System.out.println("\tGrammar:");
+        System.out.println("VN (Non-Terminals): " + nonTerminals);
+        System.out.println("VT (Terminals): " + terminals);
+        System.out.println("Start Symbol: " + startSymbol);
+        System.out.println("Productions:");
+
+        displayProductionsType2Or3();
 
         System.out.println("\n");
     }
+
+    //needs refactoring
+    public void displayProductionsType2Or3() {
+
+        Map<String, Set<String>> productionMap = new HashMap<>();
+
+        for (Production production : productions) {
+            String lhs = production.left.stream()
+                    .map(Symbol::toString)
+                    .reduce((a, b) -> a + b)
+                    .orElse("");
+
+            String rhs = production.right.stream()
+                    .map(Symbol::toString)
+                    .reduce((a, b) -> a + b)
+                    .orElse("ε");
+
+            productionMap.computeIfAbsent(lhs, k -> new HashSet<>()).add(rhs);
+        }
+
+        List<String> lhsOrder = new ArrayList<>(productionMap.keySet());
+
+        if (lhsOrder.contains("S0")) {
+            lhsOrder.remove("S0");
+            lhsOrder.add(0, "S0");
+
+            lhsOrder.remove("S");
+            lhsOrder.add(1, "S");
+        } else if (lhsOrder.contains("S")) {
+            lhsOrder.remove("S");
+            lhsOrder.add(0, "S");
+        }
+
+        for (String lhs : lhsOrder) {
+            String rhs = String.join(" | ", productionMap.get(lhs));
+            System.out.println(lhs + " → " + rhs);
+        }
+    }
+
+
 }
