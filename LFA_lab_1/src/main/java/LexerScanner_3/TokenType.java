@@ -1,4 +1,4 @@
-package lab_3;
+package LexerScanner_3;
 
 public enum TokenType {
     TRUE, FALSE, // boolean literals

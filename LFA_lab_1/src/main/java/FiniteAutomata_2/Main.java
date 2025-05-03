@@ -1,4 +1,4 @@
-package lab_2;
+package FiniteAutomata_2;
 
 import FiniteAutomaton.FiniteAutomaton;
 import FiniteAutomaton.Transition;

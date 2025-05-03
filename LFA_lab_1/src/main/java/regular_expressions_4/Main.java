@@ -1,6 +1,4 @@
-package lab_4;
-
-import lab_4.RegexProcessor;
+package regular_expressions_4;
 
 public class Main {
     public static void main(String[] args) {

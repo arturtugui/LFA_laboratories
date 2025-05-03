@@ -1,4 +1,4 @@
-package lab_5;
+package ChomskyNormalForm_5;
 
 import Grammar.Production;
 import Grammar.symbols.Epsilon;
@@ -6,7 +6,7 @@ import Grammar.symbols.NonTerminal;
 import Grammar.symbols.Symbol;
 import Grammar.symbols.Terminal;
 import Grammar.Grammar;
-import lab_5.ContextFreeGrammar.ConverterToCNF;
+import ChomskyNormalForm_5.ContextFreeGrammar.ConverterToCNF;
 
 import java.util.ArrayList;
 import java.util.HashSet;
