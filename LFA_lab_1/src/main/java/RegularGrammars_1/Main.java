@@ -1,4 +1,4 @@
-package lab_1;
+package RegularGrammars_1;
 
 import FiniteAutomaton.FiniteAutomaton;
 import Grammar.Grammar;

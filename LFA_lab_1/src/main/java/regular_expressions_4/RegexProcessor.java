@@ -1,4 +1,4 @@
-package lab_4;
+package regular_expressions_4;
 
 import java.util.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package lab_4;
+package regular_expressions_4;
 
 import org.junit.Test;
 
@@ -7,9 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class RegexTests {
     @Test

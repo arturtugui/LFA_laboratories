@@ -1,4 +1,4 @@
-package lab_5.ContextFreeGrammar;
+package ChomskyNormalForm_5.ContextFreeGrammar;
 
 import Grammar.Grammar;
 import Grammar.Production;

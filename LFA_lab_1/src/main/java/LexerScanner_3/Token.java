@@ -1,8 +1,8 @@
-package lab_3;
+package LexerScanner_3;
 
 public class Token {
-    TokenType type;
-    String lexeme;
+    public TokenType type;
+    public String lexeme;
 
     public Token(TokenType type, String lexeme) {
         this.type = type;

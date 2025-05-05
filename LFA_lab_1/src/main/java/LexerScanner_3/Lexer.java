@@ -1,4 +1,4 @@
-package lab_3;
+package LexerScanner_3;
 
 import java.util.ArrayList;
 import java.util.List;

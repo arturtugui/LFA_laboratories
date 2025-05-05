@@ -1,11 +1,11 @@
-package lab_5;
+package ChomskyNormalForm_5;
 
 import Grammar.Grammar;
 import Grammar.Production;
 import Grammar.symbols.Epsilon;
 import Grammar.symbols.NonTerminal;
 import Grammar.symbols.Terminal;
-import lab_5.ContextFreeGrammar.ConverterToCNF;
+import ChomskyNormalForm_5.ContextFreeGrammar.ConverterToCNF;
 import org.junit.Test;
 
 import static org.junit.Assert.fail;

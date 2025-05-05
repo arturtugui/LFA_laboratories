@@ -1,4 +1,4 @@
-package lab_1;
+package RegularGrammars_1;
 
 import Grammar.Grammar;
 import Grammar.Production;
