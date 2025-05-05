@@ -148,6 +148,13 @@ These functions systematically transform any CFG into an equivalent one in CNF, 
 
 
 ## Results
+Variant 31 done manually
+
+![Part 1](1.jpg)
+
+![Part 2](2.jpg)
+
+Variant 31 done by the program
 
 ![Execution Variant 30 part 1](2025-04-16%2012_02_06-LFA_lab_1%20%E2%80%93%20Main.java.png)
 

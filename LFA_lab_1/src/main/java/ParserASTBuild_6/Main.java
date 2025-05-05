@@ -15,7 +15,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Allow user to choose between demo mode or custom input
         System.out.println("Choose an option:");
         System.out.println("1. Run demo examples");
         System.out.println("2. Enter custom boolean expression");
