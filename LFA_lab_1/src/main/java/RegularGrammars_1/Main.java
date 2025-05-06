@@ -1,3 +1,5 @@
+package RegularGrammars_1;
+
 import FiniteAutomaton.FiniteAutomaton;
 import Grammar.Grammar;
 import Grammar.Production;
@@ -31,13 +33,13 @@ public class Main {
         terminals.add(t_c);
 
         List<Production> productions = new ArrayList<>();
-        productions.add(new Production(nt_S, new ArrayList<Symbol>(List.of(t_a, nt_B))));
-        productions.add(new Production(nt_B, new ArrayList<Symbol>(List.of(t_b, nt_S))));
-        productions.add(new Production(nt_B, new ArrayList<Symbol>(List.of(t_a, nt_C))));
-        productions.add(new Production(nt_B, new ArrayList<Symbol>(List.of(t_c))));
-        productions.add(new Production(nt_C, new ArrayList<Symbol>(List.of(t_b, nt_D))));
-        productions.add(new Production(nt_D, new ArrayList<Symbol>(List.of(t_c))));
-        productions.add(new Production(nt_D, new ArrayList<Symbol>(List.of(t_a, nt_C))));
+        productions.add(new Production(new ArrayList<Symbol>(List.of(nt_S)), new ArrayList<Symbol>(List.of(t_a, nt_B))));
+        productions.add(new Production(new ArrayList<Symbol>(List.of(nt_B)), new ArrayList<Symbol>(List.of(t_b, nt_S))));
+        productions.add(new Production(new ArrayList<Symbol>(List.of(nt_B)), new ArrayList<Symbol>(List.of(t_a, nt_C))));
+        productions.add(new Production(new ArrayList<Symbol>(List.of(nt_B)), new ArrayList<Symbol>(List.of(t_c))));
+        productions.add(new Production(new ArrayList<Symbol>(List.of(nt_C)), new ArrayList<Symbol>(List.of(t_b, nt_D))));
+        productions.add(new Production(new ArrayList<Symbol>(List.of(nt_D)), new ArrayList<Symbol>(List.of(t_c))));
+        productions.add(new Production(new ArrayList<Symbol>(List.of(nt_D)), new ArrayList<Symbol>(List.of(t_a, nt_C))));
 
         Grammar grammar = new Grammar(nonTerminals, terminals, productions, nt_S);
 
